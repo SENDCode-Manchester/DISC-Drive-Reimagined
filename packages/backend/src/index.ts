@@ -2,6 +2,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import express from "express";
 import { config } from "dotenv";
 import path from "node:path";
+import { modelParams } from "./geminiConfig";
 
 // the painful way of loading .env from another folder
 config({ path: path.join(process.cwd(), "../../.env") });
@@ -12,12 +13,9 @@ if (!process.env.GEMINI_API_KEY) {
 }
 
 const genAi = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
+const model = genAi.getGenerativeModel(modelParams);
+
 const port = 3000;
-
-const model = genAi.getGenerativeModel({
-    model: "gemini-2.0-flash"
-});
-
 const app = express();
 app.use(express.json());
 
@@ -38,10 +36,7 @@ app.post("/generateContent", async function(req, res) {
     }
 
     const result = await model.generateContent(req.body.prompt);
-
-    res.json({
-        text: result.response.text()
-    });
+    res.json(JSON.parse(result.response.text()));
 });
 
 app.listen(port, function() {
