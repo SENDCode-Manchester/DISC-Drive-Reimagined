@@ -12,7 +12,6 @@
   "dependencies": {
     "@fontsource-variable/instrument-sans": "^5.1.1",
     "@fontsource-variable/roboto-mono": "^5.1.1",
-    "@material-symbols/font-400": "^0.28.1",
     "@material-symbols/font-500": "^0.28.1",
     "@tailwindcss/vite": "^4.0.5",
     "react": "^19.0.0",
