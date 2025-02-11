@@ -1,1 +1,14 @@
 @import "tailwindcss";
+@import "@fontsource-variable/instrument-sans";
+@import "@fontsource-variable/roboto-mono";
+@import "@material-symbols/font-500";
+
+body {
+    /* https://fontsource.org/fonts/instrument-sans/install */
+    font-family: "Instrument Sans Variable", system-ui;
+}
+
+code {
+    /* https://fontsource.org/fonts/roboto-mono/install */
+    font-family: "Roboto Mono Variable", system-ui;
+}
