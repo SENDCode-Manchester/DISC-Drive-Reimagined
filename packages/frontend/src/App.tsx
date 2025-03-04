@@ -129,7 +129,7 @@ function App() {
           </div>
         </div>
       </div>
-      <ImportModal visible={importModalOpen} setVisible={setImportModalOpen} students={students} setStudents={setStudents} />
+      {importModalOpen && <ImportModal setVisible={setImportModalOpen} students={students} setStudents={setStudents} />}
     </div>
   )
 }

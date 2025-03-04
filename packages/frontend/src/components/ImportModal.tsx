@@ -1,7 +1,7 @@
 import { useFilePicker } from "use-file-picker";
 import { StudentDetails } from "./Student";
 
-function ImportModal({ visible, setVisible, students, setStudents } : { visible: boolean, setVisible: (value: boolean) => void, students: StudentDetails[], setStudents: (value: StudentDetails[]) => void }) {
+function ImportModal({ setVisible, students, setStudents } : { setVisible: (value: boolean) => void, students: StudentDetails[], setStudents: (value: StudentDetails[]) => void }) {
     const { openFilePicker } = useFilePicker({
         accept: ".csv",
         // @ts-expect-error typings not working
@@ -32,7 +32,7 @@ function ImportModal({ visible, setVisible, students, setStudents } : { visible:
     });
 
     return (
-        <div className={`${visible ? "flex" : "hidden"} fixed bg-black/25 h-screen w-screen items-center justify-center`}>
+        <div className="flex fixed bg-black/25 h-screen w-screen items-center justify-center">
             <div className="bg-neutral-100 h-full w-full p-4 flex flex-col text-sm gap-1 lg:h-fit lg:w-1/3 lg:rounded-xl lg:p-6">
                 <p className="font-medium text-xl">Ready to import?</p>
                 <p>You will need a comma-delimited .csv file with each student on a row, with the columns in order of name, age and interests. For example:</p>
@@ -48,7 +48,7 @@ function ImportModal({ visible, setVisible, students, setStudents } : { visible:
                     Carlos Rodriguez,11,football, science experiments, collecting rocks
                 </code>
                 <div className="flex justify-end gap-2 mt-2">
-                    <button className="px-3 py-2 rounded-sm cursor-pointer" onClick={() => setVisible(false)}>Cancel</button>
+                    <input autoFocus type="button" className="px-3 py-2 rounded-sm cursor-pointer" onClick={() => setVisible(false)} value="Cancel" />
                     <button className="bg-neutral-200 px-3 py-2 rounded-sm cursor-pointer" onClick={openFilePicker}>Continue</button>
                 </div>
             </div>
