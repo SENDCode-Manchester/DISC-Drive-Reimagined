@@ -50,4 +50,4 @@ jobs:
             sudo docker stop inversity-hackathon || true
             sudo docker rm inversity-hackathon || true
             sudo docker load -i /home/${{ secrets.AWS_USER }}/inversity-hackathon.tar
-            sudo docker run -d -e GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }} -p 3000:3000 -p 5174:5174 -d inversity-hackathon
+            sudo docker run -d -e GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }} -p 3000:3000 -p 80:5174 --name inversity-hackathon inversity-hackathon
