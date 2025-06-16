@@ -1,4 +1,4 @@
-name: Verify ability to build
+name: Build and deploy Docker container
 
 on:
   push:
